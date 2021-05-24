@@ -26,12 +26,12 @@
     <?php
     $user_id = $_SESSION['user_id'];
     if (!$user_id) {
-        header("Location: login.php");
+        header("Location: index.php");
     }
     $student_query = "SELECT * FROM student WHERE user_id = $user_id";
     $student_result = mysqli_query($conn, $student_query);
     if (!$student_result) {
-        header("Location: login.php");
+        header("Location: index.php");
     }
     $student = mysqli_fetch_assoc($student_result);
     $school_name = $student['school_name'];
@@ -125,14 +125,27 @@
                                 echo '<div class="col-md-12">
                                         <p class="font-weight-bold text-primary"> APPLICATION ' . $application['status'] . '</p></div>';
 
-                                if ($application['status'] == 'ACTIVE')
-                                    echo '<div class="col-md-12">
-                                    <form method="POST" action="request_extension.php">
-                                        <button type="submit" class="btn btn-dark" name="application_id" value="' . $app_id . '">
-                                            REQUEST EXTENSION
-                                        </button>
-                                        </form>
-                                    </div>';
+                                $already_req = "SELECT * FROM `membership_extension` WHERE application_id=$app_id";
+                                $check_result = mysqli_query($conn,$already_req);
+                                if ($application['status'] == 'ACTIVE'){
+                                    if($check_result->num_rows  == 0){
+                                        echo '<div class="col-md-12">
+                                        <form method="POST" action="request_extension.php">
+                                            <button type="submit" class="btn btn-dark" name="application_id" value="' . $app_id . '">
+                                                REQUEST EXTENSION
+                                            </button>
+                                            </form>
+                                        </div>';
+                                    }else{
+                                        echo '<div class="col-md-12">
+                                            <p class="text-success" name="application_id">
+                                                EXTENSION REQUESTED
+                                            </p>
+                                        </div>';
+                                    }
+                               
+                                }
+                             
                             }
                             ?>
                         </div>

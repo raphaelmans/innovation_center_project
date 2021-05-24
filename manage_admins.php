@@ -2,12 +2,12 @@
 <?php 
 
    if($_SESSION['role'] != 'ADMIN'){
-    echo "<script type='text/javascript'>window.top.location='login.php';</script>"; exit;
+    echo "<script type='text/javascript'>window.top.location='index.php';</script>"; exit;
    }
 
 ?>
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Pending Applications</h1>
+<h1 class="h3 mb-2 text-gray-800">Manage Admins</h1>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-body">
@@ -125,7 +125,8 @@
                 width: 'auto'
             },
             {
-                type: "control"
+                type: "control",
+                editButton: false
             }
         ]
     });

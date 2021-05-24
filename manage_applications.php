@@ -56,7 +56,7 @@
                         request_method: 'update_one'
                     },
                     success: function(result) {
-                        // location.reload();
+                        location.reload();
                     },
                     error: function(err) {
                         console.log(err)

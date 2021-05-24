@@ -6,7 +6,6 @@ if (isset($_GET['request_method']) && $_GET['request_method'] == 'get_all') {
     $output = array();
     if ($result->num_rows > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-
             $action_query = 'SELECT * FROM membership_extension WHERE application_id='.$row['application_id'];
             $action_result = mysqli_query($conn, $action_query);
             if($action_result->num_rows > 0){

@@ -105,7 +105,7 @@
                             <span class="small">
                                 Already have an account?&nbsp;
                             </span>
-                            <a href='login.php' class="small">
+                            <a href='index.php' class="small">
                                 Login here
                             </a>
                         </div>
@@ -195,7 +195,7 @@
         $student_query =  "INSERT into `student` (`first_name`, `middle_initial`, `last_name`, `city`, `province`, `country`, `zip_code`, `phone_number`, `school_name`, `user_id`) VALUES('$first_name','$middle_initial','$last_name','$city','$province','$city','$zip_code','$phone_number','$school_name',$user_id)";
         $result = mysqli_query($conn, $student_query);
         if ($result) {
-            echo "<script type='text/javascript'>window.top.location='login.php';</script>"; exit;
+            echo "<script type='text/javascript'>window.top.location='index.php';</script>"; exit;
         }
     }
     ?>

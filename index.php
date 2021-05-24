@@ -38,7 +38,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Login!</h1>
                             </div>
-                            <form class="user" name='student_form' method="POST" action="login.php">
+                            <form class="user" name='student_form' method="POST" action="index.php">
                                 <div id='second_step'>
                                     <div class="form-group">
                                         <div class="form-group">
